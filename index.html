@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프리미엄 인바운드 DB 매칭 | B2B 전문관</title>
     
     <meta property="og:type" content="website">
@@ -11,6 +11,21 @@
     <meta property="og:image" content="https://대표님도메인/썸네일이미지.jpg">
     <meta property="og:url" content="https://대표님도메인">
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '대표님픽셀ID'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=대표님픽셀ID&ev=PageView&noscript=1"
+    /></noscript>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
         /* 글로벌 변수 및 리셋 */
@@ -28,12 +43,12 @@
         a { text-decoration: none; color: inherit; }
         
         /* 공통 레이아웃 */
-        .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); position: relative; overflow-x: hidden; }
+        .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); position: relative; }
         .section { padding: 90px 40px; }
         @media (max-width: 768px) { .section { padding: 60px 20px; } }
         .section-title { font-size: 32px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 50px; letter-spacing: -0.5px; scroll-margin-top: 80px; }
 
-        /* 1) 상단 헤더 스타일 */
+        /* 상단 헤더 스타일 */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px; background-color: var(--white);
@@ -66,12 +81,10 @@
         }
         .badge { display: inline-block; background: rgba(212, 175, 55, 0.15); color: var(--accent); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 24px; border-radius: 50px; font-weight: 700; font-size: 14px; margin-bottom: 30px; }
         .hero h1 { font-size: 44px; font-weight: 800; line-height: 1.35; margin-bottom: 24px; letter-spacing: -1px; }
-        @media (max-width: 768px) { .hero h1 { font-size: 32px; } }
         .hero p { font-size: 19px; color: #cbd5e1; max-width: 650px; margin: 0 auto; font-weight: 400; line-height: 1.7; }
 
         /* 시각적 쇼케이스 (Type 1 & Type 2) */
         .showcase-wrapper { background: #f1f5f9; padding: 60px 40px; border-radius: 16px; margin-bottom: 60px; border: 1px solid var(--border); scroll-margin-top: 80px; }
-        @media (max-width: 768px) { .showcase-wrapper { padding: 40px 20px; border-radius: 0; border-left: none; border-right: none; } }
         .showcase-header { text-align: center; margin-bottom: 30px; }
         .showcase-header h3 { color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 10px; }
         .showcase-header p { color: var(--text-muted); font-size: 16px; }
@@ -95,8 +108,7 @@
         /* 비교 분석표 */
         .vs-table-wrapper { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border); margin-bottom: 60px; }
         .vs-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 16px; }
-        @media (max-width: 768px) { .vs-table { font-size: 13px; } .vs-table th, .vs-table td { padding: 10px 5px; } }
-        .vs-table th, .vs-table td { padding: 22px 15px; border-bottom: 1px solid var(--border); word-break: keep-all; }
+        .vs-table th, .vs-table td { padding: 22px 15px; border-bottom: 1px solid var(--border); }
         .vs-table th { background: #f1f5f9; font-weight: 800; color: var(--primary); width: 33%; font-size: 17px; }
         .vs-table th.our-side { background: var(--primary); color: var(--accent); }
         .vs-table td:first-child { font-weight: 700; background: #f8fafc; color: var(--primary); }
@@ -111,7 +123,7 @@
         @media (max-width: 650px) { .cards { grid-template-columns: 1fr; } }
         .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 45px 30px; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #cbd5e1; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-        .card.premium { border: 2px solid var(--accent); background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12); transform: scale(1.02); z-index: 2; margin-top: 15px; }
+        .card.premium { border: 2px solid var(--accent); background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12); transform: scale(1.02); z-index: 2; }
         .card.premium::before { content: '전문가 추천 : 순수 니즈 매칭'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--primary); color: var(--accent); padding: 8px 24px; border-radius: 30px; font-size: 14px; font-weight: 800; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .card h3 { font-size: 24px; color: var(--primary); margin-bottom: 12px; font-weight: 800; }
         .price { font-size: 38px; font-weight: 800; color: var(--primary); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 25px; }
@@ -135,22 +147,37 @@
         /* 폼 섹션 */
         .form-section { background: var(--bg-light); border-top: 1px solid var(--border); scroll-margin-top: 80px; }
         .form-container { background: var(--white); border-radius: 16px; padding: 50px 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.06); max-width: 550px; margin: 0 auto; border: 1px solid var(--border); }
-        @media (max-width: 768px) { .form-container { padding: 35px 20px; } }
         .form-container h2 { text-align: center; font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
         .form-container p { text-align: center; color: var(--text-muted); font-size: 15px; margin-bottom: 35px; line-height: 1.5; }
         .form-group { margin-bottom: 24px; }
-        .form-group label { display: block; font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 10px; text-align: left; }
-        .form-control { width: 100%; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; font-family: inherit; transition: all 0.3s; background: #f8fafc; -webkit-appearance: none; }
+        .form-group label { display: block; font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .form-control { width: 100%; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; font-family: inherit; transition: all 0.3s; background: #f8fafc; }
         .form-control:focus { outline: none; border-color: var(--accent); background: var(--white); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15); }
         .btn-submit { width: 100%; background: var(--primary); color: var(--accent); padding: 20px; font-size: 19px; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
-        .btn-submit:disabled { background: #94a3b8; color: #fff; cursor: not-allowed; }
+        .btn-submit:hover { background: #0f172a; transform: translateY(-3px); box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25); }
         .scarcity { text-align: center; color: var(--red); font-size: 15px; font-weight: 700; margin-top: 24px; background: rgba(239, 68, 68, 0.08); padding: 12px; border-radius: 8px; }
 
-        /* 3) 푸터 스타일 */
-        footer { background-color: var(--primary); color: var(--white); padding: 40px 20px; text-align: center; }
-        .company-info p { font-size: 14px; margin-bottom: 8px; color: #cbd5e1; }
-        .company-info p strong { color: var(--white); font-weight: 800; }
-        .company-info .copyright { margin-top: 20px; font-size: 13px; opacity: 0.7; }
+        /* Footer 스타일 */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .company-info p {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #cbd5e1; 
+        }
+        .company-info p strong {
+            color: var(--white);
+            font-weight: 800;
+        }
+        .company-info .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -308,7 +335,7 @@
                 불량 DB 교환하느라 감정 소모하지 마십시오. A/S수량 + 추가지급 서비스 !!.<br><br>
                 50건↑ 진행 시 <span class="highlight">A/S+5건 무료</span> 추가 지급<br>
                 100건↑ 진행 시 <span class="highlight">A/S+15건 무료</span> 추가 지급<br>
-                <span style="font-size:13px; opacity:0.8; display:block; margin-top:10px;">※ 기본 A/S 정책은 신청수량의 10% 이내 입니다</span>
+                ※ 기본 A/S 정책은 신청수량의 10% 이내 입니다
             </div>
         </div>
     </div>
@@ -319,6 +346,7 @@
             <p>무분별한 결제를 받지 않습니다. 매주 지역별 한정 인원만 배정합니다.<br>입력하신 연락처로 확인 후 지역 T/O 가능여부 및 신청견적을 안내드립니다.</p>
             
             <form action="https://formspree.io/f/mdalpdbp" method="POST" id="leadForm">
+                
                 <div class="form-group">
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
@@ -327,6 +355,7 @@
                         <option value="Type2_만남보상형DB">Type 2: 만남 보상형 DB (35,000원)</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="region">신청지역 선택</label>
                     <select id="region" name="region" class="form-control" required>
@@ -368,38 +397,44 @@
             <p class="copyright">Copyright © 2020 miraemarketing.co.kr All rights reserved.</p>
         </div>
     </footer>
+
 </div>
 
 <script>
-    // 5) 전화번호 하이픈 자동 생성
+    // 휴대폰 번호 입력 시 하이픈 자동 생성 스크립트
     document.getElementById('phone').addEventListener('input', function (e) {
         let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,4})(\d{0,4})/);
         e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // 2) Formspree AJAX 전송 및 버튼 방어
+    // Formspree AJAX 전송
     document.getElementById('leadForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         var form = this;
         var submitBtn = form.querySelector('.btn-submit');
         
-        // 4) 픽셀 방어 코드
-        try {
-            if(typeof fbq === 'function') { fbq('track', 'Lead'); }
-        } catch (error) { console.log('Pixel error blocked.'); }
+        // 1. Meta Pixel 전환 이벤트 발송
+        if(typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
 
+        // 2. 버튼 상태 변경 방어 로직 (중복 클릭 방지)
         submitBtn.disabled = true;
         submitBtn.innerText = "접수 중입니다...";
 
+        // 3. Formspree로 백그라운드 데이터 전송
+        var data = new FormData(form);
         fetch(form.action, {
             method: form.method,
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
         }).then(response => {
             if (response.ok) {
                 alert("정상적으로 접수되었습니다.\n\n남겨주신 번호로 확인후에 지역 T/O 결과와 견적을 문자(카카오톡)로 발송해 드립니다.");
-                form.reset(); 
+                form.reset(); // 폼 초기화
             } else {
                 alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
             }
@@ -411,22 +446,6 @@
         });
     });
 </script>
-
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '대표님픽셀ID'); /* 추후 이 부분에 대표님의 실제 픽셀 ID 번호를 꼭 넣으세요 */
-    fbq('track', 'PageView');
-</script>
-<noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=대표님픽셀ID&ev=PageView&noscript=1"/>
-</noscript>
 
 </body>
 </html>
