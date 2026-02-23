@@ -2,39 +2,34 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Type 1: 메디컬보장분석 DB 상세 | 미래마케팅</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
     <style>
         :root { --primary: #004aad; --accent: #77ffbf; --text-main: #111111; --text-sub: #555555; --line: #e5e5e5; --bg-gray: #f9fafb; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; letter-spacing: -0.02em; }
-        body { background-color: #cbd5e1; color: var(--text-main); line-height: 1.5; word-break: keep-all; }
+        body { background-color: #fff; color: var(--text-main); line-height: 1.6; word-break: keep-all; }
         a { text-decoration: none; color: inherit; }
-        
-        .container { max-width: 500px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.15); min-height: 100vh; padding-bottom: 100px; position: relative; }
-        .header { background: var(--primary); color: #fff; padding: 15px 20px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .header-title { font-size: 1.1rem; font-weight: 800; margin-left: 15px; }
-        .back-btn { color: #fff; font-size: 1.4rem; font-weight: bold; }
-        
-        .content { padding: 30px 20px; }
-        .page-label { background: #eee; color: #555; font-size: 0.75rem; font-weight: 900; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 15px; }
-        h1 { font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 10px; }
-        .price { font-size: 24px; font-weight: 900; color: var(--primary); margin-bottom: 25px; }
-        .price span { font-size: 14px; color: var(--text-sub); font-weight: 500; }
-        
-        .info-box { background: var(--bg-gray); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-bottom: 25px; }
-        .info-box h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
-        .info-list { list-style: none; margin-bottom: 15px; }
-        .info-list li { padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px; display: flex; align-items: flex-start; }
-        .info-list li:last-child { border-bottom: none; padding-bottom: 0; }
-        .check { color: var(--primary); margin-right: 10px; font-weight: 900; }
-        
+        .container { max-width: 700px; margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); min-height: 100vh; padding-bottom: 120px; position: relative; }
+        .header { background: var(--primary); color: #fff; padding: 20px 30px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .header-title { font-size: 1.2rem; font-weight: 800; margin-left: 15px; }
+        .back-btn { color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .content { padding: 40px 30px; }
+        .page-label { background: #eee; color: #555; font-size: 0.8rem; font-weight: 900; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
+        h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 15px; color: var(--text-main); }
+        .price { font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 30px; }
+        .price span { font-size: 1.1rem; color: var(--text-sub); font-weight: 500; }
+        .info-box { background: var(--bg-gray); border: 1px solid var(--line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .info-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        .info-list { list-style: none; margin-bottom: 20px; }
+        .info-list li { padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 1.05rem; display: flex; align-items: flex-start; }
+        .info-list li:last-child { border-bottom: none; }
+        .check { color: var(--primary); margin-right: 12px; font-weight: 900; }
         .image-wrapper { margin-top: 15px; }
-        .sample-img { width: 100%; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 8px; }
-        .img-caption { text-align: center; font-size: 13px; color: var(--text-sub); font-weight: 600; margin-bottom: 25px; }
-
-        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; }
-        .btn { flex: 1; padding: 14px; text-align: center; border-radius: 6px; font-weight: 800; font-size: 15px; }
+        .sample-img { width: 100%; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 10px; }
+        .img-caption { text-align: center; font-size: 0.9rem; color: var(--text-sub); font-weight: 600; margin-bottom: 30px; }
+        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; }
+        .btn { flex: 1; padding: 16px; text-align: center; border-radius: 8px; font-weight: 800; font-size: 1.1rem; transition: 0.2s; }
         .btn-back { background: #eee; color: #333; flex: 1; }
         .btn-apply { background: var(--primary); color: #fff; flex: 2; }
     </style>
@@ -48,28 +43,35 @@
     <div class="content">
         <div class="page-label">Type 1</div>
         <h1>메디컬보장분석 DB</h1>
-        <div class="price">30,000원 <span>(VAT 포함/건)</span></div>
-        <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 30px;">고객이 직접 광고를 보고 신청한 100% 인바운드 DB입니다.<br>단순 연락처가 아닌, 상담에 즉시 활용할 수 있는 <b>질병예측정보</b>와 <b>보장분석 자료</b>가 포함되어 있어 클로징 확률이 높습니다.</p>
-
+        <div class="price">30,000원 <span>(VAT 포함 / 1건)</span></div>
+        <p style="font-size: 1.1rem; color: var(--text-sub); margin-bottom: 40px;">고객이 직접 광고를 보고 신청한 100% 인바운드 DB입니다.<br>상담에 즉시 활용할 수 있는 <b>질병예측정보</b>와 <b>보장분석 자료</b>가 포함되어 클로징 확률이 매우 높습니다.</p>
         <div class="info-box">
             <h3>제공 데이터 내역</h3>
             <ul class="info-list">
-                <li><span class="check">✔</span> <strong>기본 정보:</strong> 연락처, 이름, 생년월일, 성별, 주소지</li>
-                <li><span class="check">✔</span> <strong>질병예측 리포트:</strong> 메디에이지 생체나이/위험도</li>
+                <li><span class="check">✔</span> <strong>고객 기본 정보:</strong> 연락처, 이름, 생년월일, 성별, 주소지, 상담가능일</li>
+                <li><span class="check">✔</span> <strong>질병예측 리포트:</strong> 메디에이지 생체나이 및 발병 위험도 자료</li>
                 <li><span class="check">✔</span> <strong>보험가입 내역:</strong> 기가입 보험 보장분석표</li>
             </ul>
         </div>
+        <div class="info-box">
+            <h3>이런 분들께 추천합니다</h3>
+            <ul class="info-list">
+                <li><span class="check">✔</span> 바로 상담 가능한 직관적 DB가 필요하신 분</li>
+                <li><span class="check">✔</span> 체계적인 데이터로 고객 신뢰를 얻고 싶은 분</li>
+            </ul>
+        </div>
+        <h3 style="font-size: 1.2rem; margin: 40px 0 15px; color: var(--text-main);">실제 제공 샘플 확인</h3>
         <div class="image-wrapper">
             <img src="mediage_bio.png" alt="메디에이지 샘플" class="sample-img" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600'">
-            <div class="img-caption">▲ 질병예측 리포트 샘플</div>
+            <div class="img-caption">▲ 메디에이지 질병예측 리포트 샘플</div>
             <img src="mediage_ins.png" alt="보장분석 샘플" class="sample-img" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600'">
-            <div class="img-caption">▲ 기가입 보장분석 샘플</div>
+            <div class="img-caption">▲ 기가입 보장분석 리포트 샘플</div>
             <img src="img_excel_table.png" alt="엑셀 DB 형태" class="sample-img">
-            <div class="img-caption">▲ 실제 제공 포맷 (엑셀)</div>
+            <div class="img-caption">▲ 실제 제공되는 원본 DB 포맷 (엑셀)</div>
         </div>
     </div>
     <div class="sticky-bar">
-        <a href="index.html" class="btn btn-back">목록</a>
+        <a href="index.html" class="btn btn-back">목록으로</a>
         <a href="index.html#contact" class="btn btn-apply">이 DB로 T/O 확인하기</a>
     </div>
 </div>

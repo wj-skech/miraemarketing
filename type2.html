@@ -2,36 +2,32 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Type 2: 만남 보상형 DB 상세 | 미래마케팅</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type 2: 미팅보상형 DB 상세 | 미래마케팅</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
     <style>
         :root { --primary: #004aad; --accent: #77ffbf; --text-main: #111111; --text-sub: #555555; --line: #e5e5e5; --bg-gray: #f9fafb; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; letter-spacing: -0.02em; }
-        body { background-color: #cbd5e1; color: var(--text-main); line-height: 1.5; word-break: keep-all; }
+        body { background-color: #fff; color: var(--text-main); line-height: 1.6; word-break: keep-all; }
         a { text-decoration: none; color: inherit; }
-        
-        .container { max-width: 500px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.15); min-height: 100vh; padding-bottom: 100px; position: relative; }
-        .header { background: var(--primary); color: #fff; padding: 15px 20px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .header-title { font-size: 1.1rem; font-weight: 800; margin-left: 15px; }
-        .back-btn { color: #fff; font-size: 1.4rem; font-weight: bold; }
-        
-        .content { padding: 30px 20px; }
-        .page-label { background: #eee; color: #555; font-size: 0.75rem; font-weight: 900; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 15px; }
-        h1 { font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 10px; }
-        .price { font-size: 24px; font-weight: 900; color: var(--primary); margin-bottom: 25px; }
-        .price span { font-size: 14px; color: var(--text-sub); font-weight: 500; }
-        
-        .info-box { background: var(--bg-gray); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-bottom: 25px; }
+        .container { max-width: 700px; margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); min-height: 100vh; padding-bottom: 120px; position: relative; }
+        .header { background: var(--primary); color: #fff; padding: 20px 30px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .header-title { font-size: 1.2rem; font-weight: 800; margin-left: 15px; }
+        .back-btn { color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .content { padding: 40px 30px; }
+        .page-label { background: #eee; color: #555; font-size: 0.8rem; font-weight: 900; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
+        h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 15px; color: var(--text-main); }
+        .price { font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 30px; }
+        .price span { font-size: 1.1rem; color: var(--text-sub); font-weight: 500; }
+        .info-box { background: var(--bg-gray); border: 1px solid var(--line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
         .info-box.highlight { border: 2px dashed #d9534f; background: #fffaf9; }
-        .info-box h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
-        .info-list { list-style: none; margin-bottom: 15px; }
-        .info-list li { padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px; display: flex; align-items: flex-start; }
-        .info-list li:last-child { border-bottom: none; padding-bottom: 0; }
-        .check { color: var(--primary); margin-right: 10px; font-weight: 900; }
-
-        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; }
-        .btn { flex: 1; padding: 14px; text-align: center; border-radius: 6px; font-weight: 800; font-size: 15px; }
+        .info-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        .info-list { list-style: none; margin-bottom: 20px; }
+        .info-list li { padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 1.05rem; display: flex; align-items: flex-start; }
+        .info-list li:last-child { border-bottom: none; }
+        .check { color: var(--primary); margin-right: 12px; font-weight: 900; }
+        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; }
+        .btn { flex: 1; padding: 16px; text-align: center; border-radius: 8px; font-weight: 800; font-size: 1.1rem; transition: 0.2s; }
         .btn-back { background: #eee; color: #333; flex: 1; }
         .btn-apply { background: var(--primary); color: #fff; flex: 2; }
     </style>
@@ -44,13 +40,13 @@
     </div>
     <div class="content">
         <div class="page-label">Type 2</div>
-        <h1>만남 보상형 DB</h1>
-        <div class="price">35,000원 <span>(VAT 포함/건)</span></div>
-        <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 30px;">고객이 신청한 정보를 기본으로 제공하며, 만남 성사율을 극대화하기 위해 <b>고객 직접 보상 시스템</b>이 결합된 하이엔드 DB입니다.</p>
-
+        <h1>미팅보상형 DB</h1>
+        <div class="price">35,000원 <span>(VAT 포함 / 1건)</span></div>
+        <p style="font-size: 1.1rem; color: var(--text-sub); margin-bottom: 40px;">고객이 신청한 모든 정보를 기본으로 제공하며, 고객과의 만남 성사율을 극대화하기 위해 <b>고객 직접 보상 시스템</b>이 결합된 하이엔드 DB입니다.</p>
+        
         <div class="info-box highlight">
             <h3 style="color: #d9534f; border-color: #d9534f;">★ 압도적 대면 성사율의 비밀</h3>
-            <p style="font-size: 14px; font-weight: 600; margin-top: 10px; line-height: 1.6;">
+            <p style="font-size: 1.05rem; font-weight: 600; margin-top: 10px; line-height: 1.6;">
                 설계사님이 5분 이상 유효통화를 하거나 대면 미팅을 진행하면, <b>신청 고객에게 업체에서 직접 보상을 제공</b>합니다. 통보만 해주시면 되므로 매우 편리합니다.
             </p>
         </div>
@@ -58,15 +54,22 @@
         <div class="info-box">
             <h3>제공 데이터 내역</h3>
             <ul class="info-list">
-                <li><span class="check">✔</span> 고객이 신청한 모든 정보 포함</li>
+                <li><span class="check">✔</span> 고객이 직접 기입하여 신청한 데이터 정보</li>
                 <li><span class="check">✔</span> 연락처, 이름, 생년월일, 성별, 주소</li>
-                <li><span class="check">✔</span> 상담관심분야, 보험료 수준</li>
+                <li><span class="check">✔</span> 상담관심분야, 납입보험료 수준</li>
                 <li><span class="check">✔</span> 고객이 신청한 시간 정보</li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h3>이런 분들께 추천합니다</h3>
+            <ul class="info-list">
+                <li><span class="check">✔</span> 전화상담 및 대면미팅 만남 확률을 극대화하고 싶은 분</li>
+                <li><span class="check">✔</span> 일단 고객을 만나기만 하면 클로징할 자신이 있으신 분</li>
             </ul>
         </div>
     </div>
     <div class="sticky-bar">
-        <a href="index.html" class="btn btn-back">목록</a>
+        <a href="index.html" class="btn btn-back">목록으로</a>
         <a href="index.html#contact" class="btn btn-apply">이 DB로 T/O 확인하기</a>
     </div>
 </div>
