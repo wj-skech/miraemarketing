@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>프리미엄 인바운드 DB 매칭 | B2B 전문관</title>
     
     <meta property="og:type" content="website">
@@ -42,8 +42,8 @@
         body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
         
-        /* 공통 레이아웃 */
-        .container { max-width: 900px; margin: 0 auto; background: var(--white); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); position: relative; }
+        /* 공통 레이아웃 (최대 너비를 700px로 조정하여 PC/모바일 최적화) */
+        .container { max-width: 700px; margin: 0 auto; background: var(--white); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); position: relative; overflow-x: hidden; }
         .section { padding: 90px 40px; }
         @media (max-width: 768px) { .section { padding: 60px 20px; } }
         .section-title { font-size: 32px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 50px; letter-spacing: -0.5px; scroll-margin-top: 80px; }
@@ -335,7 +335,7 @@
                 불량 DB 교환하느라 감정 소모하지 마십시오. A/S수량 + 추가지급 서비스 !!.<br><br>
                 50건↑ 진행 시 <span class="highlight">A/S+5건 무료</span> 추가 지급<br>
                 100건↑ 진행 시 <span class="highlight">A/S+15건 무료</span> 추가 지급<br>
-                ※ 기본 A/S 정책은 신청수량의 10% 이내 입니다
+                <span style="font-size:13px; opacity:0.8; display:block; margin-top:10px;">※ 기본 A/S 정책은 신청수량의 10% 이내 입니다</span>
             </div>
         </div>
     </div>
@@ -414,10 +414,10 @@
         var form = this;
         var submitBtn = form.querySelector('.btn-submit');
         
-        // 1. Meta Pixel 전환 이벤트 발송
-        if(typeof fbq === 'function') {
-            fbq('track', 'Lead');
-        }
+        // 1. Meta Pixel 전환 이벤트 발송 및 방어코드 적용
+        try {
+            if(typeof fbq === 'function') { fbq('track', 'Lead'); }
+        } catch (error) { console.log('Pixel error blocked.'); }
 
         // 2. 버튼 상태 변경 방어 로직 (중복 클릭 방지)
         submitBtn.disabled = true;
