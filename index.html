@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>프리미엄 인바운드 DB 매칭 | B2B 전문관</title>
+    <title>프리미엄 인바운드 DB 전문 | B2B 전문기업</title>
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="프리미엄 인바운드 DB 매칭 | B2B 전문관">
+    <meta property="og:title" content="프리미엄 인바운드 DB 전문 | B2B 전문기업">
     <meta property="og:description" content="통신사 본인인증을 거친 100% 순수 인바운드 고객을 연결합니다.">
-    <meta property="og:image" content="https://대표님도메인/썸네일이미지.jpg">
-    <meta property="og:url" content="https://대표님도메인">
+    <meta property="og:image" content="https://www.miraemarketing.co.kr/logo.png">
+    <meta property="og:url" content="https://www.miraemarketing.co.kr">
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -20,11 +20,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '대표님픽셀ID'); 
+    fbq('init', '649365770436071'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=대표님픽셀ID&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=649365770436071&ev=PageView&noscript=1"
     /></noscript>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
@@ -177,6 +177,40 @@
             margin-top: 20px;
             font-size: 13px;
             opacity: 0.7;
+        }
+
+        /* --- 모바일 최적화를 위한 추가 CSS (화면 비율 및 텍스트 짤림 방지) --- */
+        @media (max-width: 600px) {
+            header { flex-wrap: wrap; justify-content: center; gap: 15px; padding: 15px; }
+            header nav { width: 100%; justify-content: center; gap: 15px; }
+            .hero { padding: 80px 15px; }
+            .hero h1 { font-size: 32px; word-break: keep-all; }
+            .hero p { font-size: 16px; }
+            .section { padding: 60px 15px; }
+            .section-title { font-size: 26px; margin-bottom: 35px; }
+            .showcase-wrapper { padding: 40px 20px; }
+            .group-title { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .link-text { align-self: flex-start; }
+            .vs-table th, .vs-table td { padding: 14px 6px; font-size: 14px; }
+            .vs-table th { font-size: 15px; }
+            .card { padding: 35px 20px; }
+            .card.premium::before { font-size: 13px; padding: 6px 18px; }
+            .price { font-size: 30px; padding-bottom: 20px; margin-bottom: 20px; }
+            .buffer-box { padding: 35px 20px; }
+            .buffer-box h4 { font-size: 20px; }
+            .buffer-text { font-size: 15px; }
+            .form-container { padding: 40px 20px; }
+            .form-container h2 { font-size: 22px; }
+        }
+
+        @media (max-width: 400px) {
+            .logo { font-size: 20px; }
+            header nav { gap: 10px; }
+            header nav a { font-size: 14px; }
+            header nav .btn-primary { padding: 6px 12px; font-size: 13px; }
+            .hero h1 { font-size: 28px; }
+            .vs-table th, .vs-table td { font-size: 13px; padding: 12px 4px; }
+            .vs-table th { font-size: 13px; }
         }
     </style>
 </head>
@@ -394,7 +428,7 @@
         <div class="company-info">
             <p><strong>미래마케팅</strong> (대표: 김동현) | 사업자등록번호: 547-12-01592</p>
             <p>신청 문의: 010-2665-5756 | 이메일: miraemarketing@daum.net</p>
-            <p class="copyright">Copyright © 2020 miraemarketing.co.kr All rights reserved.</p>
+            <p class="copyright">Copyright © 2021 miraemarketing.co.kr All rights reserved.</p>
         </div>
     </footer>
 
@@ -433,13 +467,13 @@
             }
         }).then(response => {
             if (response.ok) {
-                alert("정상적으로 접수되었습니다.\n\n남겨주신 번호로 확인후에 지역 T/O 결과와 견적을 문자(카카오톡)로 발송해 드립니다.");
+                alert("정상적으로 접수되었습니다.\n\n남겨주신 번호로 확인후에 지역 T/O 결과와 견적을 문자(카카오톡)로 발송해 드립니다.감사합니다.");
                 form.reset(); // 폼 초기화
             } else {
                 alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
             }
         }).catch(error => {
-            alert("접수 중 시스템 오류가 발생했습니다. 관리자에게 문의해주세요.");
+            alert("접수 중 시스템 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
         }).finally(() => {
             submitBtn.disabled = false;
             submitBtn.innerText = "신청지역 T/O 확인";
