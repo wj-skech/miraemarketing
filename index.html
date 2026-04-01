@@ -91,12 +91,12 @@
         .showcase-content h4 { color: var(--primary); font-size: 16px; font-weight: 800; margin-bottom: 8px; }
         .showcase-content p { color: var(--text-muted); font-size: 13px; line-height: 1.4; }
 
-        /* 품절(Sold Out) 시각적 효과 클래스 */
+        /* 품절(Sold Out) 시각적 효과 클래스 - 클릭 활성화 유지 */
         .sold-out-overlay {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.3); /* 투명도를 낮춰 아래 내용이 잘 보이게 조절 */
             z-index: 10; display: flex; align-items: center; justify-content: center;
-            border-radius: inherit; pointer-events: none;
+            border-radius: inherit; pointer-events: none; /* 클릭이 아래 a 태그로 투과되도록 필수 유지 */
         }
         .sold-out-stamp {
             transform: rotate(-15deg); border: 4px solid var(--red);
@@ -105,7 +105,10 @@
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
             background: rgba(255,255,255,0.9);
         }
-        .dimmed { filter: grayscale(100%); opacity: 0.6; pointer-events: none; }
+        
+        /* dimmed 클래스에서 pointer-events: none 제거하여 클릭 활성화 */
+        .dimmed { filter: grayscale(100%); opacity: 0.8; transition: all 0.3s ease; }
+        .dimmed:hover { filter: grayscale(40%); opacity: 1; } /* 마우스 오버 시 약간 선명해지며 클릭 가능함을 암시 */
 
         .vs-table-wrapper { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border); margin-bottom: 60px; }
         .vs-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 16px; }
@@ -124,7 +127,6 @@
         .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 45px 30px; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #cbd5e1; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         
-        /* Type-2를 이제 메인(Premium)으로 강조 */
         .card.premium { border: 2px solid var(--accent); background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12); transform: scale(1.02); z-index: 2; }
         .card.premium::before { content: '전문가 추천 : 압도적 매칭율'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--primary); color: var(--accent); padding: 8px 24px; border-radius: 30px; font-size: 14px; font-weight: 800; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         
@@ -213,30 +215,30 @@
                 </div>
                 <div class="group-title">
                     <span>(Type 1) 메디컬보장분석 DB</span>
-                    <span class="link-text" style="background:#ef4444; color:#fff;">발급 중단</span>
+                    <a href="type1.html" class="link-text" style="background:#ef4444; color:#fff; z-index: 11; position: relative;">상세보기 &rarr;</a>
                 </div>
                 <div class="showcase-grid">
-                    <div class="showcase-card">
+                    <a href="type1.html" class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400" alt="메디에이지 질병예측" class="showcase-img">
                         <div class="showcase-content">
                             <h4>1. 메디에이지 보고서</h4>
                             <p>헬스케어 분석 전문기업의 질병위험도 리포트</p>
                         </div>
-                    </div>
-                    <div class="showcase-card">
+                    </a>
+                    <a href="type1.html" class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=400" alt="보장분석 리포트" class="showcase-img">
                         <div class="showcase-content">
                             <h4>2. 기가입 보장분석</h4>
                             <p>내보험다보여 내역 상세제공 및 과부족 분석</p>
                         </div>
-                    </div>
-                    <div class="showcase-card">
+                    </a>
+                    <a href="type1.html" class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=400" alt="DB 수신 폼" class="showcase-img">
                         <div class="showcase-content">
                             <h4>3. 고객의 기본 정보</h4>
                             <p>통신사 인증 부터 마케팅 동의까지 검증된 고객 정보</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -317,7 +319,7 @@
                         <li>기가입 보험 보장분석 제공</li>
                     </ul>
                 </div>
-                <div class="btn-detail" style="background:#e2e8f0; color:#94a3b8; border:none;">현재 배정 불가</div>
+                <a href="type1.html" class="btn-detail" style="background:#f8fafc; color:#64748b; border:1px solid #cbd5e1; position: relative; z-index: 11;">Type 1 상세 스펙 보기 (현재 마감) &rarr;</a>
             </div>
             
             <div class="card premium">
@@ -326,7 +328,7 @@
                     <div class="price">35,000원 <span>/ 건당</span></div>
                     <ul class="features">
                         <li><strong>고객 자발적 통신사 본인인증 완료</strong></li>
-                        <li>대면 미팅 시 고객에게 보상 지급(앱포인트 발송)</li>
+                        <li>대면 미팅 시 고객에게 보상 지급(3만원 상당 발송)</li>
                         <li>리워드광고가 아닌 프리미엄 오퍼월 수집(체리피커 최소화)</li>
                         <li><strong>미팅 성사에 초점을 맞춘 합리적 가격</strong></li>
                     </ul>
@@ -357,7 +359,7 @@
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
                         <option value="">원하시는 DB 유형을 선택해주세요</option>
-                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB (현재 배정 가능)</option>
+                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB </option>
                         <option value="Type1_soldout" style="color:red; font-weight:bold;">Type 1: 메디컬 보장분석 DB [❌ 전 지역 T/O 마감]</option>
                     </select>
                 </div>
@@ -399,7 +401,7 @@
     <footer>
         <div class="company-info">
             <p><strong>미래마케팅</strong> | [ 사업자등록번호: 547-12-01592 ]</p>
-            <p>신청 문의: 카카오톡ID: miraemarketing | 이메일: miraemarketing@daum.net</p>
+            <p>카카오톡ID: miraemarketing | 이메일: miraemarketing@daum.net</p>
             <p class="copyright">Copyright © 2021 miraemarketing.co.kr All rights reserved.</p>
         </div>
     </footer>
@@ -413,11 +415,11 @@
         e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // 2. [강력 차단 로직] Type-1 품절 선택 시 경고창 띄우고 선택 초기화
+    // 2. [강력 차단 로직] Type-1 품절 선택 시 경고창 띄우고 선택 초기화 (폼 제출 원천 차단)
     document.getElementById('dbType').addEventListener('change', function(e) {
         if (e.target.value === 'Type1_soldout') {
             alert("❌ [품절 안내] \n\n현재 Type-1 (메디컬 보장분석 DB)는 전 지역 T/O가 완전히 마감되어 당분간 배정이 불가합니다.\n\n즉시 단독 배정이 가능한 [Type-2 매칭 보상형 DB]를 선택하여 주시기 바랍니다.");
-            e.target.value = ''; // 선택값을 강제로 비워버림 (폼 제출 원천 차단)
+            e.target.value = ''; // 선택값을 강제로 비워버림
         }
     });
 
