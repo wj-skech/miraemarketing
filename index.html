@@ -20,11 +20,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '25946429255056040');
+    fbq('init', '25946429255056040'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=649365770436071&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=25946429255056040&ev=PageView&noscript=1"
     /></noscript>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
@@ -36,19 +36,16 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* 부드러운 스크롤 이동 적용 */
         html { scroll-behavior: smooth; }
         
         body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; }
         
-        /* 공통 레이아웃 (최대 너비를 700px로 조정하여 PC/모바일 최적화) */
         .container { max-width: 700px; margin: 0 auto; background: var(--white); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); position: relative; overflow-x: hidden; }
         .section { padding: 90px 40px; }
         @media (max-width: 768px) { .section { padding: 60px 20px; } }
         .section-title { font-size: 32px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 50px; letter-spacing: -0.5px; scroll-margin-top: 80px; }
 
-        /* 상단 헤더 스타일 */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px; background-color: var(--white);
@@ -65,31 +62,20 @@
         header nav a { font-size: 15px; font-weight: 700; color: var(--text-main); transition: 0.3s; }
         header nav a:hover { color: var(--accent); }
         
-        header nav .btn-primary {
-            background-color: var(--primary); color: var(--accent);
-            padding: 8px 18px; border-radius: 6px; font-weight: 800;
-        }
-        header nav .btn-primary:hover {
-            background-color: var(--accent); color: var(--primary);
-        }
+        header nav .btn-primary { background-color: var(--primary); color: var(--accent); padding: 8px 18px; border-radius: 6px; font-weight: 800; }
+        header nav .btn-primary:hover { background-color: var(--accent); color: var(--primary); }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80') center/cover no-repeat;
-            color: var(--white); text-align: center; padding: 120px 20px;
-        }
+        .hero { position: relative; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80') center/cover no-repeat; color: var(--white); text-align: center; padding: 120px 20px; }
         .badge { display: inline-block; background: rgba(212, 175, 55, 0.15); color: var(--accent); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 24px; border-radius: 50px; font-weight: 700; font-size: 14px; margin-bottom: 30px; }
         .hero h1 { font-size: 44px; font-weight: 800; line-height: 1.35; margin-bottom: 24px; letter-spacing: -1px; }
         .hero p { font-size: 19px; color: #cbd5e1; max-width: 650px; margin: 0 auto; font-weight: 400; line-height: 1.7; }
 
-        /* 시각적 쇼케이스 (Type 1 & Type 2) */
         .showcase-wrapper { background: #f1f5f9; padding: 60px 40px; border-radius: 16px; margin-bottom: 60px; border: 1px solid var(--border); scroll-margin-top: 80px; }
         .showcase-header { text-align: center; margin-bottom: 30px; }
         .showcase-header h3 { color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 10px; }
         .showcase-header p { color: var(--text-muted); font-size: 16px; }
         
-        .showcase-group { margin-bottom: 50px; }
+        .showcase-group { margin-bottom: 50px; position: relative; }
         .showcase-group:last-child { margin-bottom: 0; }
         .group-title { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 12px; display: flex; justify-content: space-between; align-items: center; }
         .link-text { font-size: 14px; color: var(--accent); font-weight: 600; background: var(--primary); padding: 4px 12px; border-radius: 20px; transition: 0.3s; }
@@ -105,7 +91,22 @@
         .showcase-content h4 { color: var(--primary); font-size: 16px; font-weight: 800; margin-bottom: 8px; }
         .showcase-content p { color: var(--text-muted); font-size: 13px; line-height: 1.4; }
 
-        /* 비교 분석표 */
+        /* 품절(Sold Out) 시각적 효과 클래스 */
+        .sold-out-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.75);
+            z-index: 10; display: flex; align-items: center; justify-content: center;
+            border-radius: inherit; pointer-events: none;
+        }
+        .sold-out-stamp {
+            transform: rotate(-15deg); border: 4px solid var(--red);
+            color: var(--red); padding: 10px 25px; font-size: 28px;
+            font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+            background: rgba(255,255,255,0.9);
+        }
+        .dimmed { filter: grayscale(100%); opacity: 0.6; pointer-events: none; }
+
         .vs-table-wrapper { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border); margin-bottom: 60px; }
         .vs-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 16px; }
         .vs-table th, .vs-table td { padding: 22px 15px; border-bottom: 1px solid var(--border); }
@@ -118,13 +119,15 @@
         .vs-table tr:first-child td.our-side { border-top: 2px solid var(--accent); }
         .bad-point { color: var(--red); opacity: 0.8; }
 
-        /* 가격 및 상품 카드 */
         .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 650px) { .cards { grid-template-columns: 1fr; } }
         .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 45px 30px; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #cbd5e1; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        
+        /* Type-2를 이제 메인(Premium)으로 강조 */
         .card.premium { border: 2px solid var(--accent); background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12); transform: scale(1.02); z-index: 2; }
-        .card.premium::before { content: '전문가 추천 : 순수 니즈 매칭'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--primary); color: var(--accent); padding: 8px 24px; border-radius: 30px; font-size: 14px; font-weight: 800; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .card.premium::before { content: '전문가 추천 : 압도적 매칭율'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--primary); color: var(--accent); padding: 8px 24px; border-radius: 30px; font-size: 14px; font-weight: 800; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        
         .card h3 { font-size: 24px; color: var(--primary); margin-bottom: 12px; font-weight: 800; }
         .price { font-size: 38px; font-weight: 800; color: var(--primary); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 25px; }
         .price span { font-size: 16px; color: var(--text-muted); font-weight: 500; }
@@ -132,19 +135,16 @@
         .features li { position: relative; padding-left: 30px; margin-bottom: 16px; font-size: 16px; color: var(--text-main); font-weight: 500; }
         .features li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 900; font-size: 18px; }
         
-        /* 상세보기 버튼 */
         .btn-detail { display: block; width: 100%; text-align: center; background: #f1f5f9; color: var(--primary); font-weight: 800; padding: 15px; border-radius: 8px; transition: 0.3s; font-size: 16px; border: 1px solid #e2e8f0; }
         .btn-detail:hover { background: var(--primary); color: var(--white); }
         .card.premium .btn-detail { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); color: #b48e23; }
         .card.premium .btn-detail:hover { background: var(--accent); color: var(--primary); border-color: var(--accent); }
 
-        /* 버퍼 혜택 */
         .buffer-box { background: var(--primary); color: var(--white); border-radius: 16px; padding: 45px; text-align: center; margin-top: 60px; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2); }
         .buffer-box h4 { font-size: 22px; color: var(--accent); margin-bottom: 15px; font-weight: 800; }
         .buffer-text { font-size: 17px; line-height: 1.8; color: #cbd5e1; }
         .highlight { color: #facc15; font-weight: 800; font-size: 20px; }
 
-        /* 폼 섹션 */
         .form-section { background: var(--bg-light); border-top: 1px solid var(--border); scroll-margin-top: 80px; }
         .form-container { background: var(--white); border-radius: 16px; padding: 50px 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.06); max-width: 550px; margin: 0 auto; border: 1px solid var(--border); }
         .form-container h2 { text-align: center; font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
@@ -153,64 +153,30 @@
         .form-group label { display: block; font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
         .form-control { width: 100%; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; font-family: inherit; transition: all 0.3s; background: #f8fafc; }
         .form-control:focus { outline: none; border-color: var(--accent); background: var(--white); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15); }
+        .form-control:disabled { background: #e2e8f0; cursor: not-allowed; color: #94a3b8; }
+        
         .btn-submit { width: 100%; background: var(--primary); color: var(--accent); padding: 20px; font-size: 19px; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
         .btn-submit:hover { background: #0f172a; transform: translateY(-3px); box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25); }
         .scarcity { text-align: center; color: var(--red); font-size: 15px; font-weight: 700; margin-top: 24px; background: rgba(239, 68, 68, 0.08); padding: 12px; border-radius: 8px; }
 
-        /* Footer 스타일 */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .company-info p {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #cbd5e1; 
-        }
-        .company-info p strong {
-            color: var(--white);
-            font-weight: 800;
-        }
-        .company-info .copyright {
-            margin-top: 20px;
-            font-size: 13px;
-            opacity: 0.7;
-        }
+        footer { background-color: var(--primary); color: var(--white); padding: 40px 20px; text-align: center; }
+        .company-info p { font-size: 14px; margin-bottom: 8px; color: #cbd5e1; }
+        .company-info p strong { color: var(--white); font-weight: 800; }
+        .company-info .copyright { margin-top: 20px; font-size: 13px; opacity: 0.7; }
 
-        /* --- 모바일 최적화를 위한 추가 CSS --- */
         @media (max-width: 600px) {
             header { flex-wrap: wrap; justify-content: center; gap: 15px; padding: 15px; }
             header nav { width: 100%; justify-content: center; gap: 15px; }
             .hero { padding: 80px 15px; }
             .hero h1 { font-size: 32px; word-break: keep-all; }
-            .hero p { font-size: 16px; }
             .section { padding: 60px 15px; }
             .section-title { font-size: 26px; margin-bottom: 35px; }
             .showcase-wrapper { padding: 40px 20px; }
             .group-title { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .link-text { align-self: flex-start; }
-            .vs-table th, .vs-table td { padding: 14px 6px; font-size: 14px; }
-            .vs-table th { font-size: 15px; }
+            .sold-out-stamp { font-size: 20px; padding: 8px 16px; }
             .card { padding: 35px 20px; }
-            .card.premium::before { font-size: 13px; padding: 6px 18px; }
-            .price { font-size: 30px; padding-bottom: 20px; margin-bottom: 20px; }
-            .buffer-box { padding: 35px 20px; }
-            .buffer-box h4 { font-size: 20px; }
-            .buffer-text { font-size: 15px; }
             .form-container { padding: 40px 20px; }
             .form-container h2 { font-size: 22px; }
-        }
-
-        @media (max-width: 400px) {
-            .logo { font-size: 20px; }
-            header nav { gap: 10px; }
-            header nav a { font-size: 14px; }
-            header nav .btn-primary { padding: 6px 12px; font-size: 13px; }
-            .hero h1 { font-size: 28px; }
-            .vs-table th, .vs-table td { font-size: 13px; padding: 12px 4px; }
-            .vs-table th { font-size: 13px; }
         }
     </style>
 </head>
@@ -241,33 +207,36 @@
                 <p>단순한 연락처가 아닙니다. 제공되는 프리미엄 리포트와 고객 매칭 솔루션을 직접 확인하십시오.</p>
             </div>
 
-            <div class="showcase-group">
+            <div class="showcase-group dimmed">
+                <div class="sold-out-overlay">
+                    <div class="sold-out-stamp">전 지역 마감 (Sold Out)</div>
+                </div>
                 <div class="group-title">
                     <span>(Type 1) 메디컬보장분석 DB</span>
-                    <a href="type1.html" class="link-text">상세보기 &rarr;</a>
+                    <span class="link-text" style="background:#ef4444; color:#fff;">발급 중단</span>
                 </div>
                 <div class="showcase-grid">
-                    <a href="type1.html" class="showcase-card">
+                    <div class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400" alt="메디에이지 질병예측" class="showcase-img">
                         <div class="showcase-content">
                             <h4>1. 메디에이지 보고서</h4>
                             <p>헬스케어 분석 전문기업의 질병위험도 리포트</p>
                         </div>
-                    </a>
-                    <a href="type1.html" class="showcase-card">
+                    </div>
+                    <div class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=400" alt="보장분석 리포트" class="showcase-img">
                         <div class="showcase-content">
                             <h4>2. 기가입 보장분석</h4>
                             <p>내보험다보여 내역 상세제공 및 과부족 분석</p>
                         </div>
-                    </a>
-                    <a href="type1.html" class="showcase-card">
+                    </div>
+                    <div class="showcase-card">
                         <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=400" alt="DB 수신 폼" class="showcase-img">
                         <div class="showcase-content">
                             <h4>3. 고객의 기본 정보</h4>
                             <p>통신사 인증 부터 마케팅 동의까지 검증된 고객 정보</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
 
@@ -327,36 +296,39 @@
                     <tr>
                         <td>고객 니즈</td>
                         <td class="bad-point">"상담원이 전화 와서 알겠다고 한 건데요?"</td>
-                        <td class="our-side">"제 질병 예측과 보장내역을 분석받고 싶습니다"</td>
+                        <td class="our-side">"제 보장분석과 상담을 받고 싶습니다"</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="cards">
-            <div class="card premium">
+            <div class="card dimmed">
+                <div class="sold-out-overlay">
+                    <div class="sold-out-stamp" style="font-size:22px;">마감 (Sold Out)</div>
+                </div>
                 <div>
-                    <h3>Type 1: 메디컬 보장분석DB</h3>
-                    <div class="price">30,000원 <span>/ 건당</span></div>
+                    <h3 style="color:#94a3b8;">Type 1: 메디컬 보장분석DB</h3>
+                    <div class="price" style="color:#94a3b8; border-color:#e2e8f0;">30,000원 <span>/ 건당</span></div>
                     <ul class="features">
-                        <li><strong>순수 보장분석 니즈 (체리피커 최소화)</strong></li>
+                        <li>순수 보장분석 니즈</li>
                         <li>고객 자발적 통신사 본인인증 완료</li>
                         <li>건강보험공단 인증 된 질병예측 리포트 제공</li>
                         <li>기가입 보험 보장분석 제공</li>
                     </ul>
                 </div>
-                <a href="type1.html" class="btn-detail">Type 1 상세 스펙 보기 &rarr;</a>
+                <div class="btn-detail" style="background:#e2e8f0; color:#94a3b8; border:none;">현재 배정 불가</div>
             </div>
             
-            <div class="card">
+            <div class="card premium">
                 <div>
                     <h3>Type 2: 매칭 보상형 DB</h3>
                     <div class="price">35,000원 <span>/ 건당</span></div>
                     <ul class="features">
-                        <li>고객 자발적 통신사 본인인증 완료</li>
-                        <li>대면 미팅 시 고객에게 보상 지급(상품권 발송)</li>
-                        <li>리워드광고가 아닌 프리미엄 오퍼월 수집</li>
-                        <li>미팅 성사에 초점을 맞춘 합리적 가격</li>
+                        <li><strong>고객 자발적 통신사 본인인증 완료</strong></li>
+                        <li>대면 미팅 시 고객에게 보상 지급(앱포인트 발송)</li>
+                        <li>리워드광고가 아닌 프리미엄 오퍼월 수집(체리피커 최소화)</li>
+                        <li><strong>미팅 성사에 초점을 맞춘 합리적 가격</strong></li>
                     </ul>
                 </div>
                 <a href="type2.html" class="btn-detail">Type 2 상세 스펙 보기 &rarr;</a>
@@ -385,8 +357,8 @@
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
                         <option value="">원하시는 DB 유형을 선택해주세요</option>
-                        <option value="Type1_메디컬보장분석DB">Type 1: 메디컬 보장분석 DB (1건당 30,000원)</option>
-                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB (1건당 35,000원)</option>
+                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB (현재 배정 가능)</option>
+                        <option value="Type1_soldout" style="color:red; font-weight:bold;">Type 1: 메디컬 보장분석 DB [❌ 전 지역 T/O 마감]</option>
                     </select>
                 </div>
 
@@ -420,14 +392,14 @@
                 </div>
                 <button type="submit" class="btn-submit">신청지역 T/O 확인</button>
             </form>
-            <div class="scarcity">🔥 현재 수도권 및 경상권 주간 T/O가 빠르게 마감 중입니다.</div>
+            <div class="scarcity">🔥 Type-2 매칭 보상형 DB 수도권/경상권 주간 T/O 마감 임박.</div>
         </div>
     </div>
 
     <footer>
         <div class="company-info">
             <p><strong>미래마케팅</strong> | [ 사업자등록번호: 547-12-01592 ]</p>
-            <p>신청 문의: 010-2665-5756 | 이메일: miraemarketing@daum.net</p>
+            <p>신청 문의: 카카오톡ID: miraemarketing | 이메일: miraemarketing@daum.net</p>
             <p class="copyright">Copyright © 2021 miraemarketing.co.kr All rights reserved.</p>
         </div>
     </footer>
@@ -435,24 +407,37 @@
 </div>
 
 <script>
-    // 휴대폰 번호 입력 시 하이픈 자동 생성 스크립트
+    // 1. 휴대폰 번호 입력 시 하이픈 자동 생성
     document.getElementById('phone').addEventListener('input', function (e) {
         let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,4})(\d{0,4})/);
         e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // Formspree AJAX 전송 및 메타 픽셀 전환 추적 완벽 통합
+    // 2. [강력 차단 로직] Type-1 품절 선택 시 경고창 띄우고 선택 초기화
+    document.getElementById('dbType').addEventListener('change', function(e) {
+        if (e.target.value === 'Type1_soldout') {
+            alert("❌ [품절 안내] \n\n현재 Type-1 (메디컬 보장분석 DB)는 전 지역 T/O가 완전히 마감되어 당분간 배정이 불가합니다.\n\n즉시 단독 배정이 가능한 [Type-2 매칭 보상형 DB]를 선택하여 주시기 바랍니다.");
+            e.target.value = ''; // 선택값을 강제로 비워버림 (폼 제출 원천 차단)
+        }
+    });
+
+    // 3. Formspree AJAX 전송 및 메타 픽셀 전환 추적 통합
     document.getElementById('leadForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         var form = this;
         var submitBtn = form.querySelector('.btn-submit');
+        var typeSelect = document.getElementById('dbType').value;
+
+        // 최종 방어 로직 (혹시라도 Type1이 넘어가려 할 때 차단)
+        if (typeSelect === 'Type1_soldout') {
+            alert("Type-1은 현재 품절 상태로 신청이 불가합니다.");
+            return false;
+        }
         
-        // 1. 버튼 상태 변경 방어 로직 (중복 클릭 방지)
         submitBtn.disabled = true;
         submitBtn.innerText = "접수 중입니다...";
 
-        // 2. Formspree로 백그라운드 데이터 전송
         var data = new FormData(form);
         fetch(form.action, {
             method: form.method,
@@ -462,26 +447,23 @@
             }
         }).then(response => {
             if (response.ok) {
-                // 🔥 [핵심 수정 포인트] 폼 전송이 '완벽하게 성공'했을 때만 Lead(잠재고객) 이벤트를 쏩니다.
-                // 이전처럼 전송 전에 쏘면, 실패 시에도 전환으로 잡혀 쓰레기 데이터가 양산됩니다.
+                // 전송 성공 시에만 Meta Pixel Lead 이벤트 발송
                 try {
                     if(typeof fbq === 'function') { 
                         fbq('track', 'Lead'); 
-                        console.log('Meta Pixel: Lead event fired successfully.');
                     }
                 } catch (error) { 
                     console.log('Pixel error blocked.'); 
                 }
 
-                alert("정상적으로 접수되었습니다.\n\n남겨주신 번호로 확인후에 지역 T/O 결과와 견적을 문자(카카오톡)로 발송해 드립니다.감사합니다.");
-                form.reset(); // 폼 초기화
+                alert("정상적으로 접수되었습니다.\n\n남겨주신 번호로 확인후에 지역 T/O 결과와 견적을 문자(카카오톡)로 발송해 드립니다. 감사합니다.");
+                form.reset(); 
             } else {
                 alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
             }
         }).catch(error => {
             alert("접수 중 시스템 오류가 발생했습니다. 인터넷 연결을 확인해주세요.");
         }).finally(() => {
-            // 버튼 원상 복구
             submitBtn.disabled = false;
             submitBtn.innerText = "신청지역 T/O 확인";
         });
