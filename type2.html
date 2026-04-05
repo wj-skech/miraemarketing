@@ -6,34 +6,90 @@
     <title>Type 2: 매칭 보상형 DB 상세 | 미래마케팅</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
     <style>
-        :root { --primary: #004aad; --accent: #77ffbf; --text-main: #111111; --text-sub: #555555; --line: #e5e5e5; --bg-gray: #f9fafb; }
+        :root { 
+            --primary: #004aad;
+            --accent: #77ffbf; 
+            --text-main: #111111; 
+            --text-sub: #555555; 
+            --line: #e5e5e5; 
+            --bg-gray: #f9fafb;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; letter-spacing: -0.02em; }
         body { background-color: #fff; color: var(--text-main); line-height: 1.6; word-break: keep-all; }
         a { text-decoration: none; color: inherit; }
         
-        .container { max-width: 700px; margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); min-height: 100vh; padding-bottom: 120px; position: relative; }
-        .header { background: var(--primary); color: #fff; padding: 20px 30px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .container { 
+            max-width: 700px;
+            margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); 
+            min-height: 100vh; padding-bottom: 120px; position: relative;
+        }
+        .header { 
+            background: var(--primary); color: #fff; padding: 20px 30px; display: flex;
+            align-items: center; position: sticky; top: 0; z-index: 100; 
+        }
         .header-title { font-size: 1.2rem; font-weight: 800; margin-left: 15px; }
         .back-btn { color: #fff; font-size: 1.5rem; font-weight: bold; }
         
         .content { padding: 40px 30px; }
-        .page-label { background: #eee; color: #555; font-size: 0.8rem; font-weight: 900; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
+        .page-label { 
+            background: #eee; color: #555; font-size: 0.8rem; font-weight: 900; display: inline-block;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; 
+        }
         h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 15px; }
         .price { font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 30px; }
         .price span { font-size: 1.1rem; color: var(--text-sub); font-weight: 500; }
         
-        .info-box { background: var(--bg-gray); border: 1px solid var(--line); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .info-box { 
+            background: var(--bg-gray); border: 1px solid var(--line); 
+            border-radius: 12px; padding: 25px; margin-bottom: 30px;
+        }
         .info-box.highlight { border: 2px dashed #d9534f; background: #fffaf9; }
-        .info-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; color: var(--primary); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
-        .info-list { list-style: none; margin-bottom: 20px; }
-        .info-list li { padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 1.05rem; display: flex; align-items: flex-start; }
+        .info-box h3 { 
+            font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; color: var(--primary);
+            border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; 
+        }
+        
+        .info-list { list-style: none; margin-bottom: 10px; }
+        .info-list li { 
+            padding: 12px 0; border-bottom: 1px dashed var(--line);
+            font-size: 1.05rem; display: flex; align-items: flex-start; 
+        }
         .info-list li:last-child { border-bottom: none; padding-bottom: 0; }
         .check { color: var(--primary); margin-right: 12px; font-weight: 900; }
 
-        .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; }
+        /* 타임라인 시스템 플로우 전용 CSS */
+        .process-wrap { margin-top: 10px; padding: 10px 0; }
+        .process-step { position: relative; padding-left: 45px; margin-bottom: 28px; }
+        .process-step:last-child { margin-bottom: 0; }
+        .process-step::before {
+            content: ''; position: absolute; left: 15px; top: 32px; bottom: -30px;
+            width: 2px; background: #cce0f5;
+        }
+        .process-step:last-child::before { display: none; }
+        .step-icon {
+            position: absolute; left: 0; top: 0; width: 32px; height: 32px;
+            background: var(--primary); color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 0.95rem; z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 74, 173, 0.2);
+        }
+        .step-content { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .step-content h4 { font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .step-content p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.45; }
+        .role-badge { font-size: 0.75rem; padding: 3px 8px; border-radius: 20px; font-weight: 800; }
+        .role-user { background: #fee2e2; color: #dc2626; }
+        .role-hq { background: #e0e7ff; color: #4f46e5; }
+        .highlight-text { color: var(--primary); font-weight: 800; }
+        
+        .sticky-bar { 
+            position: fixed; bottom: 0; left: 0; right: 0; max-width: 700px;
+            margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); 
+            border-top: 1px solid var(--line); display: flex; z-index: 1000; padding: 15px 20px 25px; gap: 10px; 
+        }
         .btn { flex: 1; padding: 16px; text-align: center; border-radius: 8px; font-weight: 800; font-size: 1.1rem; transition: 0.2s; }
         .btn-back { background: #eee; color: #333; flex: 1; }
-        .btn-apply { background: var(--primary); color: #fff; flex: 2; }
+        .btn-apply { background: var(--primary); color: #fff; flex: 2; box-shadow: 0 10px 20px rgba(0,74,173,0.3); }
+        .btn-apply:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -46,12 +102,14 @@
         <div class="page-label">Type 2</div>
         <h1>매칭 보상형 DB</h1>
         <div class="price">35,000원 <span>(VAT 별도/건당)</span></div>
-        <p style="font-size: 1.1rem; color: var(--text-sub); margin-bottom: 40px;">고객이 신청한 정보를 기본으로 제공하며, 대면 성사율을 극대화하기 위해 <b>고객 직접 보상 시스템</b>이 결합된 하이엔드 DB입니다.</p>
+        <p style="font-size: 1.1rem; color: var(--text-sub); margin-bottom: 40px;">
+            고객이 신청한 정보를 기본으로 제공하며, 대면 성사율을 극대화하기 위해 <b>고객 직접 보상 시스템</b>이 결합된 하이엔드 DB입니다.
+        </p>
 
         <div class="info-box highlight">
             <h3 style="color: #d9534f; border-color: #d9534f;">★ 압도적 대면 성사율의 비밀</h3>
             <p style="font-size: 1.05rem; font-weight: 600; margin-top: 10px; line-height: 1.6;">
-                설계사님이 대면 미팅을 진행하면, <b>상담한 고객에게 미래마케팅에서 직접 보상을 제공</b>합니다.(설계사 부담 제로)  통보만 해주시면 되므로 매우 편리합니다.
+                설계사님이 대면 미팅을 진행하면, <b>상담한 고객에게 미래마케팅에서 직접 보상을 제공</b>합니다.(설계사 부담 제로) 통보만 해주시면 되므로 매우 편리합니다.
             </p>
         </div>
 
@@ -64,7 +122,65 @@
                 <li><span class="check">✔</span> 고객이 신청한 시간 정보(실시간 제공)</li>
             </ul>
         </div>
-    </div>
+
+        <div class="info-box" style="background: #fff; border: 2px solid #e5e5e5;">
+            <h3 style="border-bottom: 2px solid #111; color: #111;">매칭 보상형 DB [진행 시스템]</h3>
+            
+            <p style="font-size: 0.95rem; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">
+                기업만 진입 가능한 <strong style="color: var(--primary);">카카오페이, 토스, 페이북, CU</strong>등 대한민국 1등 앱의 프리미엄 광고지면을, 개인 설계사님의 다이렉트 가망 고객으로 연결하는 강력한 매칭 시스템입니다.
+            </p>
+            
+            <div class="process-wrap">
+                <div class="process-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-content">
+                        <h4>지역 T/O 배정 확정</h4>
+                        <p>무분별한 경쟁 방지를 위해 신청하신 지역의 <b>타겟팅 세팅</b>을 승인합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-content">
+                        <h4>광고 노출 시작</h4>
+                        <p>프리미엄 오퍼월 및 맞춤형 알고리즘을 통해 <b>진성 고객 타겟팅 광고</b>가 노출됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-content">
+                        <h4>고객 DB 수집</h4>
+                        <p>체리피커를 필터링하는 깐깐한 <b>통신사 본인인증</b>을 거친 100% 인바운드 정보가 수집됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-content">
+                        <h4>실시간 DB 발송</h4>
+                        <p>고객의 관심도가 가장 높은 <b>골든타임</b> 내에 설계사님께 엑셀 및 알림으로 즉각 전달됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">5</div>
+                    <div class="step-content">
+                        <h4>방문 T/A 및 상담 <span class="role-badge role-user">설계사</span></h4>
+                        <p>본사의 '리워드 권한'을 무기로 삼아 고객의 노쇼를 차단하고 <b>압도적인 '갑'의 미팅</b>을 진행합니다.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">6</div>
+                    <div class="step-content">
+                        <h4>매칭 보상 직접 지급 <span class="role-badge role-hq">미래마케팅</span></h4>
+                        <p>상담 완료가 확인되면 <b>당사(미래마케팅)가 고객에게 직접 보상을 발송</b>합니다. <span class="highlight-text">(설계사 비용지출 0원)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     <div class="sticky-bar">
         <a href="index.html" class="btn btn-back">목록</a>
         <a href="index.html#contact" class="btn btn-apply">이 DB로 T/O 확인하기</a>
