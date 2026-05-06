@@ -103,7 +103,7 @@
         .vs-table tr:first-child td.our-side { border-top: 2px solid var(--accent); }
         .bad-point { color: var(--red); opacity: 0.8; }
 
-        .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 60px; }
         @media (max-width: 650px) { .cards { grid-template-columns: 1fr; } }
         .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 45px 30px; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #cbd5e1; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
@@ -123,7 +123,21 @@
         .card.premium .btn-detail { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); color: #b48e23; }
         .card.premium .btn-detail:hover { background: var(--accent); color: var(--primary); border-color: var(--accent); }
 
-        .buffer-box { background: var(--primary); color: var(--white); border-radius: 16px; padding: 45px; text-align: center; margin-top: 60px; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2); }
+        /* 포트폴리오 섹션 스타일 추가 */
+        .portfolio-wrapper { background: #f8fafc; padding: 50px 40px; border-radius: 16px; margin-bottom: 60px; border: 1px solid var(--border); }
+        .portfolio-header { text-align: center; margin-bottom: 35px; }
+        .portfolio-header h3 { color: var(--primary); font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+        .portfolio-header p { color: var(--text-muted); font-size: 16px; line-height: 1.5; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 700px) { .portfolio-grid { grid-template-columns: 1fr; } }
+        .portfolio-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 25px 20px; text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .portfolio-card h4 { font-size: 18px; color: var(--primary); font-weight: 800; margin-bottom: 5px; }
+        .portfolio-card .subtitle { font-size: 13px; color: var(--text-muted); font-weight: 500; display: block; margin-bottom: 20px; }
+        .portfolio-card .btn-link { display: inline-block; background: var(--primary); color: var(--white); padding: 10px 0; width: 100%; border-radius: 6px; font-size: 14px; font-weight: 700; transition: 0.3s; }
+        .portfolio-card .btn-link:hover { background: var(--accent); color: var(--primary); }
+
+        .buffer-box { background: var(--primary); color: var(--white); border-radius: 16px; padding: 45px; text-align: center; margin-top: 20px; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2); }
         .buffer-box h4 { font-size: 22px; color: var(--accent); margin-bottom: 15px; font-weight: 800; }
         .buffer-text { font-size: 17px; line-height: 1.8; color: #cbd5e1; }
         .highlight { color: #facc15; font-weight: 800; font-size: 20px; }
@@ -154,7 +168,7 @@
             .hero h1 { font-size: 32px; word-break: keep-all; }
             .section { padding: 60px 15px; }
             .section-title { font-size: 26px; margin-bottom: 35px; }
-            .showcase-wrapper { padding: 40px 20px; }
+            .showcase-wrapper, .portfolio-wrapper { padding: 40px 20px; }
             .group-title { flex-direction: column; align-items: flex-start; gap: 12px; }
             .card { padding: 35px 20px; }
             .form-container { padding: 40px 20px; }
@@ -312,6 +326,37 @@
             </div>
         </div>
 
+        <!-- 새로 추가된 포트폴리오 섹션 -->
+        <div class="portfolio-header">
+                <h3>검증된 기업이 신뢰하는 파트너</h3>
+                <p>업계 Top GA는 미래마케팅의 안정적인 트래픽 공급망을 신뢰하고 함께하고 있습니다.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div>
+                        <h4>굿리치</h4>
+                        <span class="subtitle">(내보험 리모델링 신청하기)</span>
+                    </div>
+                    <a href="https://aplus.mrmarketing.kr/main" target="_blank" class="btn-link">캠페인 확인 &rarr;</a>
+                </div>
+                <div class="portfolio-card">
+                    <div>
+                        <h4>미래에셋금융서비스</h4>
+                        <span class="subtitle">(내보험 찾기 서비스)</span>
+                    </div>
+                    <a href="https://incar.mrmarketing.kr/main" target="_blank" class="btn-link">캠페인 확인 &rarr;</a>
+                </div>
+                <div class="portfolio-card">
+                    <div>
+                        <h4>AIA프리미어파트너스</h4>
+                        <span class="subtitle">(내 보장보험 종합검진 신청)</span>
+                    </div>
+                    <a href="https://aia.mrmarketing.kr/main" target="_blank" class="btn-link">캠페인 확인 &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <!-- 포트폴리오 섹션 끝 -->
+
         <div class="buffer-box">
             <h4>[파격 지원] DB A/S 선반영 시스템</h4>
             <div class="buffer-text">
@@ -334,7 +379,7 @@
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
                         <option value="">원하시는 DB 유형을 선택해주세요</option>
-                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB </option>
+                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB</option>
                         <option value="Type1_soldout" style="color:red; font-weight:bold;">Type 1: 메디컬 보장분석 DB [❌ 전 지역 T/O 마감]</option>
                     </select>
                 </div>
