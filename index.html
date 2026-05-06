@@ -91,25 +91,6 @@
         .showcase-content h4 { color: var(--primary); font-size: 16px; font-weight: 800; margin-bottom: 8px; }
         .showcase-content p { color: var(--text-muted); font-size: 13px; line-height: 1.4; }
 
-        /* 품절(Sold Out) 시각적 효과 클래스 - 클릭 활성화 유지 */
-        .sold-out-overlay {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.3); /* 투명도를 낮춰 아래 내용이 잘 보이게 조절 */
-            z-index: 10; display: flex; align-items: center; justify-content: center;
-            border-radius: inherit; pointer-events: none; /* 클릭이 아래 a 태그로 투과되도록 필수 유지 */
-        }
-        .sold-out-stamp {
-            transform: rotate(-15deg); border: 4px solid var(--red);
-            color: var(--red); padding: 10px 25px; font-size: 28px;
-            font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
-            background: rgba(255,255,255,0.9);
-        }
-        
-        /* dimmed 클래스에서 pointer-events: none 제거하여 클릭 활성화 */
-        .dimmed { filter: grayscale(100%); opacity: 0.8; transition: all 0.3s ease; }
-        .dimmed:hover { filter: grayscale(40%); opacity: 1; } /* 마우스 오버 시 약간 선명해지며 클릭 가능함을 암시 */
-
         .vs-table-wrapper { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border); margin-bottom: 60px; }
         .vs-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 16px; }
         .vs-table th, .vs-table td { padding: 22px 15px; border-bottom: 1px solid var(--border); }
@@ -175,7 +156,6 @@
             .section-title { font-size: 26px; margin-bottom: 35px; }
             .showcase-wrapper { padding: 40px 20px; }
             .group-title { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .sold-out-stamp { font-size: 20px; padding: 8px 16px; }
             .card { padding: 35px 20px; }
             .form-container { padding: 40px 20px; }
             .form-container h2 { font-size: 22px; }
@@ -209,13 +189,10 @@
                 <p>단순한 연락처가 아닙니다. 제공되는 프리미엄 리포트와 고객 매칭 솔루션을 직접 확인하십시오.</p>
             </div>
 
-            <div class="showcase-group dimmed">
-                <div class="sold-out-overlay">
-                    <div class="sold-out-stamp">전 지역 마감 (Sold Out)</div>
-                </div>
+            <div class="showcase-group">
                 <div class="group-title">
                     <span>(Type 1) 메디컬보장분석 DB</span>
-                    <a href="type1.html" class="link-text" style="background:#ef4444; color:#fff; z-index: 11; position: relative;">상세보기 &rarr;</a>
+                    <a href="type1.html" class="link-text">상세보기 &rarr;</a>
                 </div>
                 <div class="showcase-grid">
                     <a href="type1.html" class="showcase-card">
@@ -305,13 +282,10 @@
         </div>
 
         <div class="cards">
-            <div class="card dimmed">
-                <div class="sold-out-overlay">
-                    <div class="sold-out-stamp" style="font-size:22px;">마감 (Sold Out)</div>
-                </div>
+            <div class="card">
                 <div>
-                    <h3 style="color:#94a3b8;">Type 1: 메디컬 보장분석DB</h3>
-                    <div class="price" style="color:#94a3b8; border-color:#e2e8f0;">30,000원 <span>/ 건당</span></div>
+                    <h3>Type 1: 메디컬 보장분석DB</h3>
+                    <div class="price">30,000원 <span>/ 건당</span></div>
                     <ul class="features">
                         <li>순수 보장분석 니즈</li>
                         <li>고객 자발적 통신사 본인인증 완료</li>
@@ -319,7 +293,7 @@
                         <li>기가입 보험 보장분석 제공</li>
                     </ul>
                 </div>
-                <a href="type1.html" class="btn-detail" style="background:#f8fafc; color:#64748b; border:1px solid #cbd5e1; position: relative; z-index: 11;">Type 1 상세 스펙 보기 (현재 마감) &rarr;</a>
+                <a href="type1.html" class="btn-detail">Type 1 상세 스펙 보기 &rarr;</a>
             </div>
             
             <div class="card premium">
@@ -360,8 +334,8 @@
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
                         <option value="">원하시는 DB 유형을 선택해주세요</option>
-                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB </option>
-                        <option value="Type1_soldout" style="color:red; font-weight:bold;">Type 1: 메디컬 보장분석 DB [❌ 전 지역 T/O 마감]</option>
+                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB</option>
+                        <option value="Type1_메디컬보장분석DB">Type 1: 메디컬 보장분석 DB</option>
                     </select>
                 </div>
 
@@ -416,27 +390,13 @@
         e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // 2. [강력 차단 로직] Type-1 품절 선택 시 경고창 띄우고 선택 초기화 (폼 제출 원천 차단)
-    document.getElementById('dbType').addEventListener('change', function(e) {
-        if (e.target.value === 'Type1_soldout') {
-            alert("❌ [품절 안내] \n\n현재 Type-1 (메디컬 보장분석 DB)는 전 지역 T/O가 완전히 마감되어 당분간 배정이 불가합니다.\n\n즉시 단독 배정이 가능한 [Type-2 매칭 보상형 DB]를 선택하여 주시기 바랍니다.");
-            e.target.value = ''; // 선택값을 강제로 비워버림
-        }
-    });
-
-    // 3. Formspree AJAX 전송 및 메타 픽셀 전환 추적 통합
+    // 2. Formspree AJAX 전송 및 메타 픽셀 전환 추적 통합
     document.getElementById('leadForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         var form = this;
         var submitBtn = form.querySelector('.btn-submit');
         var typeSelect = document.getElementById('dbType').value;
-
-        // 최종 방어 로직 (혹시라도 Type1이 넘어가려 할 때 차단)
-        if (typeSelect === 'Type1_soldout') {
-            alert("Type-1은 현재 품절 상태로 신청이 불가합니다.");
-            return false;
-        }
         
         submitBtn.disabled = true;
         submitBtn.innerText = "접수 중입니다...";
