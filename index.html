@@ -334,8 +334,8 @@
                     <label for="dbType">DB유형 선택</label>
                     <select id="dbType" name="dbType" class="form-control" required>
                         <option value="">원하시는 DB 유형을 선택해주세요</option>
-                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB</option>
-                        <option value="Type1_메디컬보장분석DB">Type 1: 메디컬 보장분석 DB</option>
+                        <option value="Type2_매칭보상형DB">Type 2: 매칭 보상형 DB </option>
+                        <option value="Type1_soldout" style="color:red; font-weight:bold;">Type 1: 메디컬 보장분석 DB [❌ 전 지역 T/O 마감]</option>
                     </select>
                 </div>
 
@@ -390,13 +390,27 @@
         e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // 2. Formspree AJAX 전송 및 메타 픽셀 전환 추적 통합
+    // 2. [강력 차단 로직] Type-1 품절 선택 시 경고창 띄우고 선택 초기화 (폼 제출 원천 차단)
+    document.getElementById('dbType').addEventListener('change', function(e) {
+        if (e.target.value === 'Type1_soldout') {
+            alert("❌ [품절 안내] \n\n현재 Type-1 (메디컬 보장분석 DB)는 전 지역 T/O가 완전히 마감되어 당분간 배정이 불가합니다.\n\n즉시 단독 배정이 가능한 [Type-2 매칭 보상형 DB]를 선택하여 주시기 바랍니다.");
+            e.target.value = ''; // 선택값을 강제로 비워버림
+        }
+    });
+
+    // 3. Formspree AJAX 전송 및 메타 픽셀 전환 추적 통합
     document.getElementById('leadForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         var form = this;
         var submitBtn = form.querySelector('.btn-submit');
         var typeSelect = document.getElementById('dbType').value;
+
+        // 최종 방어 로직 (혹시라도 Type1이 넘어가려 할 때 차단)
+        if (typeSelect === 'Type1_soldout') {
+            alert("Type-1은 현재 품절 상태로 신청이 불가합니다.");
+            return false;
+        }
         
         submitBtn.disabled = true;
         submitBtn.innerText = "접수 중입니다...";
